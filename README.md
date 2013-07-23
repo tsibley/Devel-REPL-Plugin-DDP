@@ -1,14 +1,16 @@
 # NAME
 
-Devel::REPL::Plugin::DDP - Blah blah blah
-
-# SYNOPSIS
-
-    use Devel::REPL::Plugin::DDP;
+Devel::REPL::Plugin::DDP - Format return values with Data::Printer
 
 # DESCRIPTION
 
-Devel::REPL::Plugin::DDP is
+Use this in your Devel::REPL profile or load it from your `re.pl` script.
+
+You'll also want to make sure your profile or script runs the following:
+
+    $_REPL->normal_color("reset");
+
+or disables the [standard Colors plugin](http://search.cpan.org/perldoc?Devel::REPL::Plugin::Colors).
 
 # AUTHOR
 

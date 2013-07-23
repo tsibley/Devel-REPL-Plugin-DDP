@@ -9,7 +9,7 @@ use ExtUtils::MakeMaker 6.30;
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Blah blah blah",
+  "ABSTRACT" => "Format return values with Data::Printer",
   "AUTHOR" => "Thomas Sibley <tsibley\@cpan.org>",
   "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
