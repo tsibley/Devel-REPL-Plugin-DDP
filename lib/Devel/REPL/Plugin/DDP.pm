@@ -4,22 +4,48 @@ use strict;
 use 5.008_005;
 our $VERSION = '0.01';
 
+use Devel::REPL::Plugin;
+use Data::Printer;
+
+around 'format_result' => sub {
+    my $orig = shift;
+    my $self = shift;
+    my @to_dump = @_;
+    my $out;
+    if (@to_dump != 1 || ref $to_dump[0]) {
+        if (@to_dump == 1 && overload::Method($to_dump[0], '""')) {
+            $out = "@to_dump";
+        } else {
+            p(@to_dump,
+              output        => \$out,
+              colored       => 1,
+              caller_info   => 0 );
+        }
+    } else {
+        $out = $to_dump[0];
+    }
+    $self->$orig($out);
+};
+
 1;
+
 __END__
 
 =encoding utf-8
 
 =head1 NAME
 
-Devel::REPL::Plugin::DDP - Blah blah blah
-
-=head1 SYNOPSIS
-
-  use Devel::REPL::Plugin::DDP;
+Devel::REPL::Plugin::DDP - Format return values with Data::Printer
 
 =head1 DESCRIPTION
 
-Devel::REPL::Plugin::DDP is
+Use this in your Devel::REPL profile or load it from your C<re.pl> script.
+
+You'll also want to make sure your profile or script runs the following:
+
+    $_REPL->normal_color("reset");
+
+or disables the L<standard Colors plugin|Devel::REPL::Plugin::Colors>.
 
 =head1 AUTHOR
 
