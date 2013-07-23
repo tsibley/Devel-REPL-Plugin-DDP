@@ -1,0 +1,10 @@
+/Devel-REPL-Plugin-DDP-*
+/.build
+/_build*
+/Build
+/Makefile
+/Makefile.old
+/blib
+/pm_to_blib
+MYMETA.*
+!META.json
