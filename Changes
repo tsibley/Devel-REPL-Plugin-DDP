@@ -2,6 +2,10 @@ Revision history for Devel-REPL-Plugin-DDP
 
 {{$NEXT}}
 
+0.03  2013-12-10 16:45:27 PST
+        - Stop leaking internal representation of return values to the user
+          (persistent enclosing outer arrayref)
+
 0.02  2013-07-23 18:56:51 PDT
         - Fix deps
 
