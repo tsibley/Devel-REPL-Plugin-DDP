@@ -5,7 +5,7 @@ use 5.008_005;
 our $VERSION = '0.02';
 
 use Devel::REPL::Plugin;
-use Data::Printer;
+use Data::Printer use_prototypes => 0;
 
 around 'format_result' => sub {
     my $orig = shift;
@@ -16,10 +16,14 @@ around 'format_result' => sub {
         if (@to_dump == 1 && overload::Method($to_dump[0], '""')) {
             $out = "@to_dump";
         } else {
-            p(@to_dump,
-              output        => \$out,
-              colored       => 1,
-              caller_info   => 0 );
+            for (@to_dump) {
+                my $buf;
+                p(\$_,
+                  output        => \$buf,
+                  colored       => 1,
+                  caller_info   => 0 );
+                $out .= $buf;
+            }
         }
     } else {
         $out = $to_dump[0];
