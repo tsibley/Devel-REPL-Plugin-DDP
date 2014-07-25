@@ -1,6 +1,8 @@
 Revision history for Devel-REPL-Plugin-DDP
 
 {{$NEXT}}
+
+0.04  2014-07-25 14:13:25 PDT
         - Pass all return values through DDP instead of potentially
           stringifying single objects or using single, non-ref values as-is.
           Consistency consistency consistency.

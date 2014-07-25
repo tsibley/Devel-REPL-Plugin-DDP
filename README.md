@@ -10,7 +10,7 @@ You'll also want to make sure your profile or script runs the following:
 
     $_REPL->normal_color("reset");
 
-or disables the [standard Colors plugin](http://search.cpan.org/perldoc?Devel::REPL::Plugin::Colors).
+or disables the [standard Colors plugin](https://metacpan.org/pod/Devel::REPL::Plugin::Colors).
 
 # AUTHOR
 
