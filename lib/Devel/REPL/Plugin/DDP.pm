@@ -12,22 +12,15 @@ around 'format_result' => sub {
     my $self = shift;
     my @to_dump = @_;
     my $out;
-    if (@to_dump != 1 || ref $to_dump[0]) {
-        if (@to_dump == 1 && overload::Method($to_dump[0], '""')) {
-            $out = "@to_dump";
-        } else {
-            for (@to_dump) {
-                my $buf;
-                p(\$_,
-                  output        => \$buf,
-                  colored       => 1,
-                  caller_info   => 0 );
-                $out .= $buf;
-            }
-        }
-    } else {
-        $out = $to_dump[0];
+    for (@to_dump) {
+        my $buf;
+        p(\$_,
+          output        => \$buf,
+          colored       => 1,
+          caller_info   => 0 );
+        $out .= $buf;
     }
+    chomp $out;
     $self->$orig($out);
 };
 
