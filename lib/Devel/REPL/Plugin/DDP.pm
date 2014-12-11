@@ -20,7 +20,7 @@ around 'format_result' => sub {
           caller_info   => 0 );
         $out .= $buf;
     }
-    chomp $out;
+    chomp $out if defined $out;
     $self->$orig($out);
 };
 
