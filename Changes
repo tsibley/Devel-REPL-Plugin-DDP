@@ -2,6 +2,10 @@ Revision history for Devel-REPL-Plugin-DDP
 
 {{$NEXT}}
 
+0.05  2014-12-11 13:51:06 PST
+        - Avoid uninitialized value warnings by not chomping undef values.
+          (Thanks Andreas Voegele!)
+
 0.04  2014-07-25 14:13:25 PDT
         - Pass all return values through DDP instead of potentially
           stringifying single objects or using single, non-ref values as-is.

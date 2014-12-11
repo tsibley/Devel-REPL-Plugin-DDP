@@ -2,7 +2,7 @@ package Devel::REPL::Plugin::DDP;
 
 use strict;
 use 5.008_005;
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 use Devel::REPL::Plugin;
 use Data::Printer use_prototypes => 0;
